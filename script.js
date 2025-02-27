@@ -12,7 +12,7 @@ function updateClock() {
 
     if (!is24HourFormat) {
         ampm = hours >= 12 ? 'PM' : 'AM';
-        hours = hours % 12 || 12; // Convert 24-hour format to 12-hour
+        hours = hours % 12 || 12;
     }
 
     document.getElementById('hours').textContent = String(hours).padStart(2, '0');
@@ -32,36 +32,34 @@ function toggleFormat() {
 
 function updateWorldClock() {
     const now = new Date();
-    document.getElementById('kolkata-time').textContent = formatTime(new Date(now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" })));
-    document.getElementById('london-time').textContent = formatTime(new Date(now.toLocaleString("en-US", { timeZone: "Europe/London" })));
-    document.getElementById('newyork-time').textContent = formatTime(new Date(now.toLocaleString("en-US", { timeZone: "America/New_York" })));
-    document.getElementById('tokyo-time').textContent = formatTime(new Date(now.toLocaleString("en-US", { timeZone: "Asia/Tokyo" })));
+    const cities = {
+        kolkata: "Asia/Kolkata",
+        london: "Europe/London",
+        newyork: "America/New_York",
+        tokyo: "Asia/Tokyo"
+    };
+
+    for (let city in cities) {
+        const time = new Date(now.toLocaleString("en-US", { timeZone: cities[city] }));
+        document.getElementById(`${city}-time`).textContent = formatTime(time, true);
+        document.getElementById(`${city}-time-12`).textContent = formatTime(time, false);
+    }
 }
 
-function formatTime(date) {
+function formatTime(date, is24) {
     let hours = date.getHours();
-    let minutes = String(date.getMinutes()).padStart(2, '0');
-    return `${String(hours).padStart(2, '0')}:${minutes}`;
+    let ampm = '';
+    if (!is24) {
+        ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12 || 12;
+    }
+    return `${String(hours).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')} ${ampm}`;
 }
 
-function setAlarm() {
-    alarmTime = document.getElementById('alarm-time').value;
-    if (alarmTime) {
-        alert(`Alarm set for ${alarmTime}`);
-    }
-}
-
-function checkAlarm(hours, minutes, ampm) {
-    if (alarmTime) {
-        const [alarmHours, alarmMinutes] = alarmTime.split(':');
-        const formattedHours = is24HourFormat ? alarmHours : (alarmHours % 12 || 12);
-        if (formattedHours == hours && alarmMinutes == minutes) {
-            alarmSound.play();
-            alert("⏰ Time's up!");
-            alarmTime = null; // Reset alarm
-        }
-    }
-}
+function setAlarm() { alarmTime = document.getElementById('alarm-time').value; alert(`Alarm set for ${alarmTime}`); }
+function stopAlarm() { alarmSound.pause(); }
+function pauseAlarm() { alarmSound.pause(); }
+function resetAlarm() { alarmTime = null; alert("Alarm reset"); }
 
 setInterval(updateClock, 1000);
 updateClock();
