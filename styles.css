@@ -1,19 +1,41 @@
-/* General Styles */
+/* Light and Dark Mode Styles */
+:root {
+    --bg-dark: #1e1e1e;
+    --text-dark: #FFD700;
+    --bg-light: #f4f4f4;
+    --text-light: #333;
+}
+
 body {
     text-align: center;
     font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
-    color: white;
     margin: 0;
+    padding: 0;
+    transition: 0.3s;
+}
+
+.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-light);
 }
 
 /* Navigation */
-nav ul {
+nav {
     display: flex;
-    justify-content: center;
-    list-style: none;
+    justify-content: space-between;
     background: #000;
-    padding: 10px 0;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
 }
 
 nav ul li {
@@ -23,12 +45,13 @@ nav ul li {
 nav ul li a {
     color: yellow;
     text-decoration: none;
-    font-size: 18px;
 }
 
-/* Container */
-.container {
-    margin-top: 30px;
+nav button {
+    border: none;
+    background: #FFD700;
+    padding: 5px 15px;
+    cursor: pointer;
 }
 
 /* Profile Image */
@@ -37,22 +60,11 @@ nav ul li a {
     height: 120px;
     border-radius: 50%;
     border: 3px solid yellow;
+    box-shadow: 2px 2px 10px rgba(255, 215, 0, 0.5);
 }
 
 /* Clock */
 .clock {
     font-size: 42px;
-    color: yellow;
-}
-
-/* World Clock */
-.world-clock p {
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-/* Alarm */
-input, button {
-    font-size: 16px;
-    margin: 5px;
+    margin: 20px;
 }
