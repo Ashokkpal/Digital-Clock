@@ -8,34 +8,33 @@
 </head>
 <body>
     <div class="container">
-        <img src="https://github.com/Ashokkpal/ashokkpal.github.io/blob/main/images/ashokk.jpg" alt="Ashok Pal" class="profile-img">
-        <div class="clock">
-            <div id="format-toggle">Format: <button onclick="toggleFormat()">24-hour</button></div>
-            <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span> <span id="ampm"></span>
-        </div>
-        <div class="world-clock">
-            <h3>World Clock</h3>
+        <!-- Digital Clock Section -->
+        <section class="main-clock">
+            <img src="https://github.com/Ashokkpal/ashokkpal.github.io/blob/main/images/ashokk.jpg" alt="Ashok Pal" class="profile-img">
+            <div class="clock">
+                <div id="format-toggle">Format: <button onclick="toggleFormat()">24-hour</button></div>
+                <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span> <span id="ampm"></span>
+            </div>
+        </section>
+
+        <!-- World Clock Section -->
+        <section class="world-clock">
+            <h2>World Clock</h2>
             <p>Kolkata: <span id="kolkata-time"></span></p>
             <p>London: <span id="london-time"></span></p>
             <p>New York: <span id="newyork-time"></span></p>
             <p>Tokyo: <span id="tokyo-time"></span></p>
-        </div>
-        <div class="alarm">
-            <h3>Set Alarm</h3>
+        </section>
+
+        <!-- Alarm Section -->
+        <section class="alarm">
+            <h2>Set Alarm</h2>
             <input type="time" id="alarm-time">
             <button onclick="setAlarm()">Set Alarm</button>
             <audio id="alarm-sound" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="auto"></audio>
-        </div>
-        <div class="profile">
-            <h2>Ashok Pal</h2>
-            <p>3rd-year B.Tech student at B.I.E.T.</p>
-            <p>Specializing in Software Engineering & Cybersecurity.</p>
-            <p>Skilled in C, Java, Python, Web Development & SQL.</p>
-            <p>Explore my projects: <a href="https://github.com/Ashokkpal/youtube-downloader" target="_blank">GitHub Repository</a></p>
-            <p>Connect with me on <a href="https://www.linkedin.com/in/yoursashok" target="_blank">LinkedIn</a></p>
-            <p>GitHub: <a href="https://github.com/Ashokkpal" target="_blank">Ashokkpal</a></p>
-        </div>
+        </section>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
