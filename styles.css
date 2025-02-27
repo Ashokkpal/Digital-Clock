@@ -11,38 +11,52 @@ body {
     color: #ffffff;
 }
 
+/* Container */
 .container {
     text-align: center;
+    width: 90%;
+    max-width: 600px;
 }
 
+/* Profile Image */
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     margin-bottom: 15px;
     border: 3px solid #ffeb3b;
 }
 
+/* Clock */
 .clock {
     background-color: #000;
-    padding: 20px 40px;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    font-size: 48px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    font-size: 42px;
     color: #ffeb3b;
 }
 
+/* Format Toggle */
 #format-toggle {
     margin-bottom: 10px;
 }
 
+/* World Clock */
 .world-clock {
     margin-top: 20px;
     font-size: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
 }
 
+/* Alarm */
 .alarm {
     margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
 }
 
 .alarm input {
@@ -63,15 +77,13 @@ body {
     background-color: #ffd700;
 }
 
-.profile {
-    margin-top: 20px;
-}
-
-.profile a {
-    color: #ffeb3b;
-    text-decoration: none;
-}
-
-.profile a:hover {
-    text-decoration: underline;
+/* Responsive */
+@media (max-width: 480px) {
+    .clock {
+        font-size: 36px;
+    }
+    .profile-img {
+        width: 100px;
+        height: 100px;
+    }
 }
