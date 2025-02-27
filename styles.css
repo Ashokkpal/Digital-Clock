@@ -1,0 +1,38 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0; /* Light gray background */
+    font-family: Arial, sans-serif;
+}
+
+.clock {
+    background-color: #000; /* Black background */
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#time {
+    color: #ffeb3b; /* Yellow text */
+    font-size: 48px;
+    text-align: center;
+}
+
+.profile {
+    margin-top: 20px;
+    text-align: center;
+    color: #333; /* Dark gray text */
+}
+
+.profile a {
+    color: #ffeb3b;
+    text-decoration: none;
+}
+
+.profile a:hover {
+    text-decoration: underline;
+}
