@@ -1,3 +1,4 @@
+/* styles.css */
 body {
     display: flex;
     flex-direction: column;
@@ -5,27 +6,26 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0; /* Light gray background */
+    background-color: #1e1e1e;
     font-family: Arial, sans-serif;
+    color: #ffffff;
+}
+
+.container {
+    text-align: center;
 }
 
 .clock {
-    background-color: #000; /* Black background */
+    background-color: #000;
     padding: 20px 40px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-#time {
-    color: #ffeb3b; /* Yellow text */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     font-size: 48px;
-    text-align: center;
+    color: #ffeb3b;
 }
 
 .profile {
     margin-top: 20px;
-    text-align: center;
-    color: #333; /* Dark gray text */
 }
 
 .profile a {
