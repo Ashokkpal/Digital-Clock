@@ -1,8 +1,12 @@
+// Theme Toggle
 document.getElementById("theme-toggle").addEventListener("click", function() {
     document.body.classList.toggle("light-theme");
+    this.textContent = document.body.classList.contains("light-theme") ? "🌙 Dark Mode" : "☀️ Light Mode";
 });
 
-// Update Clock
+// Clock Functionality
+let is24HourFormat = true;
+
 function updateClock() {
     let now = new Date();
     let hours = now.getHours();
@@ -20,9 +24,11 @@ function updateClock() {
     document.getElementById("ampm").innerText = is24HourFormat ? '' : ampm;
 }
 setInterval(updateClock, 1000);
+updateClock();
 
-// Toggle Format
-function toggleFormat() {
+// Format Toggle
+document.getElementById("format-toggle-btn").addEventListener("click", function() {
     is24HourFormat = !is24HourFormat;
+    this.textContent = is24HourFormat ? "Switch to 12-Hour" : "Switch to 24-Hour";
     updateClock();
-}
+});
