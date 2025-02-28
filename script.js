@@ -1,65 +1,49 @@
-// Theme Toggle
-function toggleTheme() {
-    document.body.classList.toggle('light-mode');
-    document.body.classList.toggle('dark-mode');
-}
+let is24HourFormat = true;
 
-// Digital Clock
 function updateClock() {
-    const now = new Date();
-    document.getElementById('clock').textContent = now.toLocaleTimeString();
-}
+    let now = new Date();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+    let ampm = hours >= 12 ? 'PM' : 'AM';
 
+    if (!is24HourFormat) {
+        hours = hours % 12 || 12;
+    }
+
+    document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+    document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+    document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+    document.getElementById("ampm").innerText = is24HourFormat ? '' : ampm;
+}
 setInterval(updateClock, 1000);
+
+function toggleFormat() {
+    is24HourFormat = !is24HourFormat;
+    updateClock();
+}
 
 // World Clock
 function updateWorldClock() {
-    document.getElementById('kolkata-time').textContent = new Date().toLocaleTimeString("en-US", { timeZone: "Asia/Kolkata" });
-    document.getElementById('london-time').textContent = new Date().toLocaleTimeString("en-US", { timeZone: "Europe/London" });
-    document.getElementById('newyork-time').textContent = new Date().toLocaleTimeString("en-US", { timeZone: "America/New_York" });
-    document.getElementById('tokyo-time').textContent = new Date().toLocaleTimeString("en-US", { timeZone: "Asia/Tokyo" });
+    document.getElementById("kolkata-time").innerText = new Date().toLocaleTimeString('en-IN');
+    document.getElementById("london-time").innerText = new Date().toLocaleTimeString('en-GB');
+    document.getElementById("newyork-time").innerText = new Date().toLocaleTimeString('en-US');
+    document.getElementById("tokyo-time").innerText = new Date().toLocaleTimeString('ja-JP');
 }
-
 setInterval(updateWorldClock, 1000);
 
 // Alarm
-let alarmTime = null;
-let alarmTimeout = null;
-let alarmAudio = document.getElementById('alarm-sound');
+let alarmSound = document.getElementById("alarm-sound");
 
 function setAlarm() {
-    alarmTime = document.getElementById('alarm-time').value;
-    if (!alarmTime) {
-        alert("Please set a valid alarm time!");
-        return;
-    }
-
-    let now = new Date();
-    let alarmDate = new Date(now.toDateString() + " " + alarmTime);
-
-    let timeDiff = alarmDate - now;
-    if (timeDiff < 0) {
-        alert("Set a future time!");
-        return;
-    }
-
-    alarmTimeout = setTimeout(() => {
-        alarmAudio.play();
-    }, timeDiff);
-
-    alert("Alarm set for " + alarmTime);
+    alarmSound.play();
 }
 
 function pauseAlarm() {
-    if (!alarmAudio.paused) {
-        alarmAudio.pause();
-    }
+    alarmSound.pause();
 }
 
 function stopAlarm() {
-    if (alarmTimeout) {
-        clearTimeout(alarmTimeout);
-    }
-    alarmAudio.pause();
-    alarmAudio.currentTime = 0;
+    alarmSound.pause();
+    alarmSound.currentTime = 0;
 }
