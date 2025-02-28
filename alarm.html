@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alarm</title>
+    <title>Alarm | Ashok Pal</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,19 +12,24 @@
         <button id="theme-toggle">🌙 Switch Theme</button>
     </header>
 
-    <nav>
-        <a href="index.html">Digital Clock</a>
-        <a href="world-clock.html">World Clock</a>
-        <a href="alarm.html" class="active">Alarm</a>
-    </nav>
+    <div class="profile-container">
+        <img src="https://raw.githubusercontent.com/Ashokkpal/ashokkpal.github.io/main/images/ashokk.jpg" alt="Ashok Pal" class="profile-pic">
+        <h2>Ashok Pal</h2>
+    </div>
 
-    <main class="alarm-section">
+    <div class="menu-container">
+        <a href="index.html" class="round-button">🕒</a>
+        <a href="world-clock.html" class="round-button">🌎</a>
+        <a href="alarm.html" class="round-button">⏰</a>
+    </div>
+
+    <div class="clock">
         <input type="time" id="alarm-time">
         <button onclick="setAlarm()">Set Alarm</button>
         <button onclick="pauseAlarm()">Pause</button>
         <button onclick="stopAlarm()">Stop</button>
         <audio id="alarm-sound" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="auto"></audio>
-    </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
