@@ -3,27 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>World Clock | Ashok Pal</title>
+    <title>World Clock</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="dark-mode">
+<body>
+    <header>
+        <h1>🌎 World Clock</h1>
+        <button id="theme-toggle">🌙 Switch Theme</button>
+    </header>
 
     <nav>
-        <ul>
-            <li><a href="index.html">Digital Clock</a></li>
-            <li><a href="world-clock.html">World Clock</a></li>
-            <li><a href="alarm.html">Alarm</a></li>
-        </ul>
-        <button onclick="toggleTheme()">🌞/🌙</button>
+        <a href="index.html">Digital Clock</a>
+        <a href="world-clock.html" class="active">World Clock</a>
+        <a href="alarm.html">Alarm</a>
     </nav>
 
-    <div class="container">
-        <h1>World Clock</h1>
-        <p>Kolkata: <span id="kolkata-time"></span></p>
-        <p>London: <span id="london-time"></span></p>
-        <p>New York: <span id="newyork-time"></span></p>
-        <p>Tokyo: <span id="tokyo-time"></span></p>
-    </div>
+    <main class="world-clock-section">
+        <div class="clock-container">
+            <h3>Kolkata: <span id="kolkata-time"></span></h3>
+            <h3>London: <span id="london-time"></span></h3>
+            <h3>New York: <span id="newyork-time"></span></h3>
+            <h3>Tokyo: <span id="tokyo-time"></span></h3>
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
