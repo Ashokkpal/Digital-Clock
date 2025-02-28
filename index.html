@@ -3,29 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Clock | Ashok Pal</title>
+    <title>Digital Clock</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <h1>🕒 Digital Clock System</h1>
-        <button id="theme-toggle">🌙 Switch Theme</button>
+        <button id="theme-toggle" class="mechanical-button">🌙 Switch Theme</button>
     </header>
 
-    <div class="profile-container">
-        <img src="https://raw.githubusercontent.com/Ashokkpal/ashokkpal.github.io/main/images/ashokk.jpg" alt="Ashok Pal" class="profile-pic">
-        <h2>Ashok Pal</h2>
-    </div>
-
-    <div class="menu-container">
-        <a href="index.html" class="round-button">🕒</a>
-        <a href="world-clock.html" class="round-button">🌎</a>
-        <a href="alarm.html" class="round-button">⏰</a>
-    </div>
+    <nav>
+        <a href="index.html" class="active">Digital Clock</a>
+        <a href="world-clock.html">World Clock</a>
+        <a href="alarm.html">Alarm</a>
+    </nav>
 
     <div class="clock">
-        <div id="format-toggle">Format: <button onclick="toggleFormat()">24-hour</button></div>
-        <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span> <span id="ampm"></span>
+        <div id="format-toggle">Format: 
+            <button onclick="toggleFormat()" class="mechanical-button">24-hour</button>
+        </div>
+        <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span> 
+        <span id="ampm"></span>
     </div>
 
     <script src="script.js"></script>
