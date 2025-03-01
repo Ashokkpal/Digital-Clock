@@ -11,25 +11,30 @@ h1 {
     text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
 }
 
-.clock {
-    font-size: 3em;
+.clock, .clock-box {
+    font-size: 2em;
     font-weight: bold;
-    margin-top: 20px;
     background: rgba(0, 0, 0, 0.2);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+    width: 50%;
+}
+
+.world-clock-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .mechanical-button {
     padding: 12px 25px;
     font-size: 18px;
-    border: none;
     border-radius: 25px;
     cursor: pointer;
     background: #222;
     color: #FFD700;
-    box-shadow: 2px 2px 10px rgba(255, 215, 0, 0.5);
     transition: 0.3s;
 }
 
@@ -46,7 +51,6 @@ footer img.profile-pic {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    display: block;
     margin: 10px auto;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
