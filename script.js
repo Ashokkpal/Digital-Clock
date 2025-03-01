@@ -1,34 +1,60 @@
-// Theme Toggle
-document.getElementById("theme-toggle").addEventListener("click", function() {
-    document.body.classList.toggle("light-theme");
-    this.textContent = document.body.classList.contains("light-theme") ? "🌙 Dark Mode" : "☀️ Light Mode";
-});
-
-// Clock Functionality
-let is24HourFormat = true;
+let is24Hour = false;
 
 function updateClock() {
     let now = new Date();
     let hours = now.getHours();
     let minutes = now.getMinutes();
     let seconds = now.getSeconds();
-    let ampm = hours >= 12 ? 'PM' : 'AM';
+    let ampm = "";
 
-    if (!is24HourFormat) {
+    if (!is24Hour) {
+        ampm = hours >= 12 ? ' PM' : ' AM';
         hours = hours % 12 || 12;
     }
 
-    document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-    document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
-    document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
-    document.getElementById("ampm").innerText = is24HourFormat ? '' : ampm;
+    document.getElementById("digital-clock").innerText =
+        (hours < 10 ? "0" : "") + hours + ":" +
+        (minutes < 10 ? "0" : "") + minutes + ":" +
+        (seconds < 10 ? "0" : "") + seconds + ampm;
 }
+
+function toggleFormat() {
+    is24Hour = !is24Hour;
+    updateClock();
+}
+
 setInterval(updateClock, 1000);
 updateClock();
 
-// Format Toggle
-document.getElementById("format-toggle-btn").addEventListener("click", function() {
-    is24HourFormat = !is24HourFormat;
-    this.textContent = is24HourFormat ? "Switch to 12-Hour" : "Switch to 24-Hour";
-    updateClock();
-});
+// Alarm Functions
+let alarmTimeout;
+
+function setAlarm() {
+    let alarmTime = document.getElementById("alarm-time").value;
+    if (!alarmTime) {
+        alert("Please set a valid time!");
+        return;
+    }
+
+    let [hours, minutes] = alarmTime.split(":");
+    let now = new Date();
+    let alarm = new Date();
+    alarm.setHours(hours, minutes, 0, 0);
+
+    let timeToAlarm = alarm - now;
+    if (timeToAlarm < 0) {
+        timeToAlarm += 86400000; // Add 24 hours if time has passed
+    }
+
+    alarmTimeout = setTimeout(() => document.getElementById("alarm-sound").play(), timeToAlarm);
+    alert("Alarm set!");
+}
+
+function pauseAlarm() {
+    document.getElementById("alarm-sound").pause();
+}
+
+function stopAlarm() {
+    document.getElementById("alarm-sound").pause();
+    document.getElementById("alarm-sound").currentTime = 0;
+}
