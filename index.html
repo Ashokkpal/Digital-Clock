@@ -3,28 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Clock</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="author" content="Ashok Pal">
+    <meta name="description" content="Digital Clock System with 12/24-hour toggle, world clock, and alarm system by Ashok Pal">
+    <title>Digital Clock System | Ashok Pal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>🕒 Digital Clock System</h1>
-        <button id="theme-toggle" class="mechanical-button">🌙 Switch Theme</button>
-    </header>
+    <h1>🕒 Digital Clock System</h1>
+    <div class="clock" id="digital-clock"></div>
+    <button class="mechanical-button" onclick="toggleFormat()">Switch 12/24 Hour</button>
+    <br><br>
+    <a href="world_clock.html" class="mechanical-button">🌎 World Clock</a>
+    <a href="set_alarm.html" class="mechanical-button">⏰ Set Alarm</a>
 
-    <nav>
-        <a href="index.html" class="active">Digital Clock</a>
-        <a href="world-clock.html">World Clock</a>
-        <a href="alarm.html">Alarm</a>
-    </nav>
-
-    <div class="clock">
-        <div id="format-toggle">Format: 
-            <button onclick="toggleFormat()" class="mechanical-button">24-hour</button>
-        </div>
-        <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span> 
-        <span id="ampm"></span>
-    </div>
+    <footer>
+        <img src="https://raw.githubusercontent.com/Ashokkpal/ashokkpal.github.io/main/images/ashokk.jpg" alt="Ashok Pal" class="profile-pic">
+        <p>Developed by <b>Ashok Pal</b> | <a href="https://github.com/Ashokkpal" target="_blank">GitHub</a></p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
