@@ -1,108 +1,52 @@
-/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
     text-align: center;
-    background-color: #111;
+    padding: 50px;
     color: #fff;
-    margin: 0;
-    padding: 0;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-/* Light Theme */
-body.light-theme {
-    background-color: #f4f4f4;
-    color: #111;
-}
-
-/* Header */
-header {
-    padding: 15px;
-    background-color: #222;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 h1 {
-    font-size: 24px;
-    margin: 0;
+    font-size: 2.5em;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Mechanical Button */
-.mechanical-button {
-    background: linear-gradient(to bottom, #777, #333);
-    color: white;
-    font-size: 16px;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: inset 0 3px 0 #999, 0 6px #222;
-    transition: all 0.2s ease, transform 0.1s ease;
-    position: relative;
+.clock {
+    font-size: 3em;
     font-weight: bold;
-    text-transform: uppercase;
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+.mechanical-button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    background: #222;
+    color: #FFD700;
+    box-shadow: 2px 2px 10px rgba(255, 215, 0, 0.5);
+    transition: 0.3s;
 }
 
 .mechanical-button:hover {
-    background: linear-gradient(to bottom, #888, #444);
-    box-shadow: inset 0 3px 0 #bbb, 0 6px #222;
-}
-
-.mechanical-button:active {
-    box-shadow: inset 0 3px 0 #666, 0 3px #111;
-    transform: translateY(4px);
-}
-
-/* Navigation */
-nav {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-
-nav a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
     background: #444;
-    transition: background 0.3s;
 }
 
-nav a.active {
-    background: #666;
+footer {
+    margin-top: 50px;
+    font-size: 1em;
 }
 
-nav a:hover {
-    background: #555;
-}
-
-/* Clock Display */
-.clock {
-    font-size: 50px;
-    margin-top: 20px;
-}
-
-/* Format Toggle */
-#format-toggle {
-    margin-bottom: 10px;
-}
-
-/* Responsive Styles */
-@media (max-width: 600px) {
-    .clock {
-        font-size: 30px;
-    }
-
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .mechanical-button {
-        margin-top: 10px;
-    }
+footer img.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: block;
+    margin: 10px auto;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
