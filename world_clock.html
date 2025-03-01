@@ -3,13 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Ashok Pal">
     <title>World Clock | Ashok Pal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>🌎 World Clock</h1>
-    <div class="clock" id="world-clock"></div>
+    <div class="world-clock-container">
+        <div class="clock-box">
+            <h2>🕰 Kolkata</h2>
+            <p id="kolkata-time"></p>
+        </div>
+        <div class="clock-box">
+            <h2>🇬🇧 London</h2>
+            <p id="london-time"></p>
+        </div>
+        <div class="clock-box">
+            <h2>🇯🇵 Tokyo</h2>
+            <p id="tokyo-time"></p>
+        </div>
+        <div class="clock-box">
+            <h2>🇺🇸 New York</h2>
+            <p id="newyork-time"></p>
+        </div>
+    </div>
     <a href="index.html" class="mechanical-button">🔙 Back</a>
 
     <footer>
@@ -17,12 +33,6 @@
         <p>Developed by <b>Ashok Pal</b> | <a href="https://github.com/Ashokkpal" target="_blank">GitHub</a></p>
     </footer>
 
-    <script>
-        function updateWorldClock() {
-            document.getElementById("world-clock").innerText = "UTC Time: " + new Date().toUTCString();
-        }
-        setInterval(updateWorldClock, 1000);
-        updateWorldClock();
-    </script>
+    <script src="world_clock.js"></script>
 </body>
 </html>
