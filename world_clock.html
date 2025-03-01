@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Ashok Pal">
+    <title>World Clock | Ashok Pal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>🌎 World Clock</h1>
+    <div class="clock" id="world-clock"></div>
+    <a href="index.html" class="mechanical-button">🔙 Back</a>
+
+    <footer>
+        <img src="https://raw.githubusercontent.com/Ashokkpal/ashokkpal.github.io/main/images/ashokk.jpg" alt="Ashok Pal" class="profile-pic">
+        <p>Developed by <b>Ashok Pal</b> | <a href="https://github.com/Ashokkpal" target="_blank">GitHub</a></p>
+    </footer>
+
+    <script>
+        function updateWorldClock() {
+            document.getElementById("world-clock").innerText = "UTC Time: " + new Date().toUTCString();
+        }
+        setInterval(updateWorldClock, 1000);
+        updateWorldClock();
+    </script>
+</body>
+</html>
