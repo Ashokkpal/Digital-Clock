@@ -1,4 +1,4 @@
-// Digital Clock System
+// Digital Clock
 let is24Hour = false;
 function updateClock() {
     let now = new Date();
@@ -29,4 +29,23 @@ setInterval(updateWorldClock, 1000);
 updateWorldClock();
 
 // Alarm System
-function setAlarm() { /* Fixed Alarm */ }
+let alarmTimeout;
+function setAlarm() {
+    let alarmTime = document.getElementById("alarm-time").value;
+    if (!alarmTime) {
+        alert("Please set a valid time!");
+        return;
+    }
+    let [hours, minutes] = alarmTime.split(":");
+    let now = new Date();
+    let alarm = new Date();
+    alarm.setHours(hours, minutes, 0, 0);
+    let timeToAlarm = alarm - now;
+    if (timeToAlarm < 0) {
+        timeToAlarm += 86400000;
+    }
+    alarmTimeout = setTimeout(() => document.getElementById("alarm-sound").play(), timeToAlarm);
+    alert("Alarm set!");
+}
+function pauseAlarm() { document.getElementById("alarm-sound").pause(); }
+function stopAlarm() { document.getElementById("alarm-sound").pause(); document.getElementById("alarm-sound").currentTime = 0; }
