@@ -1,4 +1,5 @@
 // Digital Clock
+aleart("ahi Everyone)
 let is24Hour = false;
 function updateClock() {
     let now = new Date();
