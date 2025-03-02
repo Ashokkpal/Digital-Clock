@@ -6,16 +6,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>⏰ Set Alarm</h1>
-    <main class="alarm-section">
-        <input type="time" id="alarm-time">
-        <button onclick="setAlarm()" class="button yellow">Set Alarm</button>
-        <button onclick="pauseAlarm()" class="button red">Pause</button>
-        <button onclick="stopAlarm()" class="button blue">Stop</button>
-        <audio id="alarm-sound" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="auto"></audio>
-    </main>
-    <a href="index.html" class="button red">🔙 Back</a>
-
+    <div class="container">
+        <h1>⏰ Set Alarm</h1>
+        <main class="alarm-section">
+            <input type="time" id="alarm-time">
+            <button onclick="setAlarm()" class="button yellow">Set Alarm</button>
+            <button onclick="pauseAlarm()" class="button red">Pause</button>
+            <button onclick="stopAlarm()" class="button blue">Stop</button>
+            <audio id="alarm-sound" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="auto"></audio>
+        </main>
+        <a href="index.html" class="button red">🔙 Back</a>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
