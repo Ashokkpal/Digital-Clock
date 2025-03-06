@@ -3,23 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Clock System | Ashok Pal</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Clock Website | Ashok Pal</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #333333;
+            text-align: center;
+            padding: 50px;
+            color: #FFD700;
+        }
+        h1 {
+            text-shadow: 3px 3px 10px rgba(255, 215, 0, 0.5);
+        }
+        .clock-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .clock {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(255, 215, 0, 0.5);
+        }
+        select, button {
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+        }
+        .image-container {
+            margin-top: 20px;
+        }
+        .image-container img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(255, 215, 0, 0.5);
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🕒 Digital Clock System</h1>
-        <div class="clock" id="digital-clock"></div>
-        <button class="button yellow" onclick="toggleFormat()">Switch 12/24 Hour</button>
-        <div class="navigation">
-            <a href="world_clock.html" class="button red">🌎 World Clock</a>
-            <a href="set_alarm.html" class="button blue">⏰ Set Alarm</a>
-        </div>
-        <footer>
-            <img src="https://raw.githubusercontent.com/Ashokkpal/ashokkpal.github.io/main/images/ashokk.jpg" alt="Ashok Pal" class="profile-pic">
-            <p>Developed by <b>Ashok Pal</b> | <a href="https://github.com/Ashokkpal" target="_blank">GitHub</a></p>
-        </footer>
+    <h1>🕒 Clock Website by Ashok Pal</h1>
+    <img src="https://raw.githubusercontent.com/Ashokkpal/ashokkpal.github.io/main/images/ashokk.jpg" alt="Ashok Pal" class="profile-pic" width="150">
+    <p>B.Tech | Software Engineering | Cybersecurity Enthusiast</p>
+    
+    <div class="image-container">
+        <img id="clock-image" src="https://via.placeholder.com/300" alt="Clock Image">
+        <br>
+        <button onclick="changeImage()">Change Image</button>
     </div>
-    <script src="script.js"></script>
+
+    <div class="clock-container">
+        <div class="clock" id="digital-clock">
+            <h2>Digital Clock</h2>
+            <p id="digital-time">00:00:00</p>
+            <button onclick="toggleFormat('digital')">Toggle 12/24 Hour</button>
+        </div>
+
+        <div class="clock" id="world-clock">
+            <h2>World Clock</h2>
+            <select id="timezone" onchange="updateWorldClock()">
+                <option value="UTC">UTC</option>
+                <option value="America/New_York">New York (EST)</option>
+                <option value="Europe/London">London (GMT)</option>
+                <option value="Asia/Kolkata" selected>India (IST)</option>
+            </select>
+            <p id="world-time">00:00:00</p>
+        </div>
+
+        <div class="clock" id="alarm-clock">
+            <h2>Alarm Clock</h2>
+            <input type="time" id="alarm-time">
+            <button onclick="setAlarm()">Set Alarm</button>
+            <p id="alarm-status">No alarm set</p>
+        </div>
+    </div>
+
+    <audio id="alarm-sound" src="https://www.fesliyanstudios.com/play-mp3/4381" preload="auto"></audio>
+
+    <script>
+        let digitalFormat = 24;
+        let alarmTime = null;
+        let images = [
+            "https://via.placeholder.com/300?text=Clock+1",
+            "https://via.placeholder.com/300?text=Clock+2",
+            "https://via.placeholder.com/300?text=Clock+3"
+        ];
+        let imageIndex = 0;
+
+        function updateDigitalClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+            
+            if (digitalFormat === 12) {
+                let ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12 || 12;
+                document.getElementById("digital-time").innerText = `${hours}:${minutes}:${seconds} ${ampm}`;
+            } else {
+                document.getElementById("digital-time").innerText = `${hours}:${minutes}:${seconds}`;
+            }
+        }
+
+        function toggleFormat(clock) {
+            if (clock === 'digital') {
+                digitalFormat = digitalFormat === 24 ? 12 : 24;
+            }
+        }
+
+        function updateWorldClock() {
+            const timezone = document.getElementById("timezone").value;
+            const now = new Date().toLocaleString("en-US", { timeZone: timezone, hour12: false });
+            document.getElementById("world-time").innerText = now.split(", ")[1];
+        }
+
+        function setAlarm() {
+            alarmTime = document.getElementById("alarm-time").value;
+            if (alarmTime) {
+                document.getElementById("alarm-status").innerText = `Alarm set for ${alarmTime}`;
+            }
+        }
+
+        function checkAlarm() {
+            const now = new Date();
+            const currentTime = now.toTimeString().substring(0, 5);
+            if (alarmTime === currentTime) {
+                document.getElementById("alarm-sound").play();
+                alert("⏰ Alarm Ringing!");
+            }
+        }
+
+        function changeImage() {
+            imageIndex = (imageIndex + 1) % images.length;
+            document.getElementById("clock-image").src = images[imageIndex];
+        }
+
+        setInterval(updateDigitalClock, 1000);
+        setInterval(updateWorldClock, 1000);
+        setInterval(checkAlarm, 1000);
+    </script>
 </body>
 </html>
