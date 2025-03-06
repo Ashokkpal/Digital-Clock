@@ -54,6 +54,7 @@
         <img id="clock-image" src="https://via.placeholder.com/300" alt="Clock Image">
         <br>
         <button onclick="changeImage()">Change Image</button>
+        <button onclick="toggleTheme()">Change Theme</button>
     </div>
 
     <div class="clock-container">
@@ -88,11 +89,12 @@
         let digitalFormat = 24;
         let alarmTime = null;
         let images = [
-            "https://via.placeholder.com/300?text=Clock+1",
-            "https://via.placeholder.com/300?text=Clock+2",
-            "https://via.placeholder.com/300?text=Clock+3"
+            "https://via.placeholder.com/300?text=Website+Design",
+            "https://via.placeholder.com/300?text=Cybersecurity",
+            "https://via.placeholder.com/300?text=Software+Engineering"
         ];
         let imageIndex = 0;
+        let darkTheme = true;
 
         function updateDigitalClock() {
             const now = new Date();
@@ -140,6 +142,17 @@
         function changeImage() {
             imageIndex = (imageIndex + 1) % images.length;
             document.getElementById("clock-image").src = images[imageIndex];
+        }
+
+        function toggleTheme() {
+            if (darkTheme) {
+                document.body.style.background = "#FFFFFF";
+                document.body.style.color = "#000000";
+            } else {
+                document.body.style.background = "#333333";
+                document.body.style.color = "#FFD700";
+            }
+            darkTheme = !darkTheme;
         }
 
         setInterval(updateDigitalClock, 1000);
