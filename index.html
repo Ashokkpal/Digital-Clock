@@ -11,9 +11,17 @@
             text-align: center;
             padding: 50px;
             color: #FFD700;
+            transition: background 0.3s, color 0.3s;
         }
         h1 {
             text-shadow: 3px 3px 10px rgba(255, 215, 0, 0.5);
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #FFD700;
+            box-shadow: 2px 2px 10px rgba(255, 215, 0, 0.5);
         }
         .clock-container {
             display: flex;
@@ -27,6 +35,7 @@
             border-radius: 10px;
             box-shadow: 2px 2px 10px rgba(255, 215, 0, 0.5);
             color: #FFD700;
+            transition: background 0.3s, color 0.3s;
         }
         select, button {
             padding: 10px;
@@ -52,7 +61,7 @@
 </head>
 <body>
     <h1>🕒 Clock Website by Ashok Pal</h1>
-    <img src="https://raw.githubusercontent.com/Ashokkpal/ashokkpal.github.io/main/images/ashokk.jpg" alt="Ashok Pal" class="profile-pic" width="150">
+    <img src="https://raw.githubusercontent.com/Ashokkpal/ashokkpal.github.io/main/images/ashokk.jpg" alt="Ashok Pal" class="profile-pic">
     <p>B.Tech | Software Engineering | Cybersecurity Enthusiast</p>
     
     <button class="mechanical-button" onclick="toggleTheme()">Change Theme</button>
@@ -138,16 +147,13 @@
         }
 
         function toggleTheme() {
-            if (darkTheme) {
-                document.body.style.background = "#FFFFFF";
-                document.body.style.color = "#000000";
-                document.querySelectorAll('.clock').forEach(el => el.style.color = "#000000");
-            } else {
-                document.body.style.background = "#333333";
-                document.body.style.color = "#FFD700";
-                document.querySelectorAll('.clock').forEach(el => el.style.color = "#FFD700");
-            }
             darkTheme = !darkTheme;
+            document.body.style.background = darkTheme ? "#333333" : "#FFFFFF";
+            document.body.style.color = darkTheme ? "#FFD700" : "#000000";
+            document.querySelectorAll('.clock').forEach(el => {
+                el.style.background = darkTheme ? "#222" : "#DDDDDD";
+                el.style.color = darkTheme ? "#FFD700" : "#000000";
+            });
         }
 
         setInterval(updateDigitalClock, 1000);
