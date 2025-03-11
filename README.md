@@ -120,5 +120,3 @@ For any questions or feedback, feel free to reach out to Ashok Pal at [ashokpal2
 
 Thank you for checking out the Digital Clock! For more information, visit our [website](https://ashokkpal.github.io/Digital-Clock/). 🌐
 ```
-
-This format uses a more structured and visually appealing layout, with clear sections and icons to enhance readability and engagement. Feel free to adjust any content or links as needed!
