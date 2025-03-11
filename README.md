@@ -119,4 +119,3 @@ For any questions or feedback, feel free to reach out to Ashok Pal at [ashokpal2
 ---
 
 Thank you for checking out the Digital Clock! For more information, visit our [website](https://ashokkpal.github.io/Digital-Clock/). 🌐
-```
